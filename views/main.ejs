@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link rel="stylesheet" href="http://localhost:8000/styles/main.css">
+    <!-- <link rel="stylesheet" href="/styles/main.css"> -->
+</head>
+<body>
+    <h2>Books:</h2>
+    
+
+    <!-- <button type="button" class="create">Create article</button> 
+    <form name="setInfo" class="createArticle hidden" >
+        <label>Article title</label>
+        <input name="articleTitle" id="clientId" placeholder="enter title of article...">
+        <label>Topic of article</label>
+        <input name="topic" placeholder="enter topic...">
+        <label>Article text</label>
+        <input name="text" placeholder="enter text...">
+        <label>Author</label>
+        <input name="author" placeholder="enter your name...">
+        <button type="submit">Create article</button>
+    </form>
+    <div class="inform hidden">Article succsessfull add</div> -->
+
+
+    <!-- <button type="button" class="findArticle" >Find from title</button> -->
+    <form name="findInfo" class="findArt">
+        <label>Book</label>
+        <input name="articleTitle" placeholder="enter title of book...">
+        <label>Author of book</label>
+        <input name="authorBook" placeholder="enter author name...">
+        <label>Genre of book</label>
+        <select type="text" class="genreBook" name="genreBook" multiple size="3" placeholder="Genre of books">
+        </select>
+        
+        <button type="submit">Find</button>
+    </form>
+    <div class="findInform hidden"></div>
+    
+
+    <div class="clientResult">
+        <table class="booksList">
+            <tr><th>Book name</th><th>Author</th><th>Genre</th></tr>
+        </table>
+    </div>
+    
+
+    <script src="/js/mainClientSide.js"></script>
+</body>
+</html>

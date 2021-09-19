@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data base</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link rel="stylesheet" href="http://localhost:8000/styles/main.css">
+    <!-- <link rel="stylesheet" href="/styles/main.css"> -->
+</head>
+<body>
+    <h2>Create Book:</h2>
+    
+    <form name="addBook" class="bookName" >
+        <label>Create new Book:</label>
+        <br>
+        <label>Book name</label>
+        <input name="name" placeholder="enter name of book...">
+        <label>Choose author name</label>
+        <select name="selectAuthor" class="selectAuthor" multiple size="3"></select>
+        <label>Choose genre</label>
+        <select name="selectGenre" class="selectGenre" multiple size="3"></select>
+        <button type="submit">Save</button>
+    </form>
+    <div class="informBook hidden">Book succsessfull add</div>
+
+
+    <form name="addAuthor" class="authorName" >
+        <label>Add new Author</label>
+        <input name="name" placeholder="enter author name...">
+
+        <button type="submit">Save</button>
+    </form>
+    <div class="informAuthor hidden">Author succsessfull add</div>
+
+
+    <form name="addGenre" class="genre">
+        <label>Add new Ganre of book</label>
+        <input type="text" name="name" placeholder="enter genre name...">
+        
+        <button type="submit">Save</button>
+    </form>
+    <div class="informGenre hidden">Genre succsessfull add</div>
+    
+
+    <script src="/js/acp/main.js"></script>
+</body>
+</html>
