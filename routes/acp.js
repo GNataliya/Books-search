@@ -16,22 +16,19 @@ const createGenre = require('../controllers/genre.js');
 
 //Показать стр. для добавления КНИГИ 
 router.get('/book', (req, res) => {
-    //res.render('main', {title: 'articles' });
-    res.render('acp/book');                     // стр books.ejs потому что на одной стр создаю 3 формы, если разные то ссылаемся на нужную страницу
+    res.render('acp/book');        // если будут разные стр, ссылаемся на нужную 
 });
 
 // получаем авторов из БД
 router.post('/authorList',  async (req, res) => {
     const getAuthor = await createAuthor.findAuthors();
     res.json(getAuthor);
-    //res.json({ status: 'ok' })
 });
 
 // получаем жанры из БД
 router.post('/genreList',  async (req, res) => {
     const getGenre = await createGenre.findGenres();
     res.json(getGenre);
-    //res.json({ status: 'ok' })
 });
 
 
@@ -57,19 +54,17 @@ router.post('/book', upload.none(), async (req, res) => {
     
     const searchAuthor = await createAuthor.getAuthor(selectAuthor);
     const author = searchAuthor.map(val=>val._id);
-    //console.log(author)
 
     const searchGenre = await createGenre.getGenre(selectGenre);
     const genre = searchGenre.map(val=>val._id);
-    //console.log(genre)
+    
     const result = await createBook.addBook(name, author, genre);
-    console.log('result', result)
+    //console.log('result', result)
     if (result.status === 'dublicate_name'){
         res.json({ status: 'dublicate_name' })
         return;
     } 
-    //res.json({ status: 'ok'})
-    //console.log(result.payload.id)
+    
     res.json({ status: 'ok', payload: { id: result.payload.id } })
 });
 
@@ -78,7 +73,7 @@ router.post('/book', upload.none(), async (req, res) => {
 router.post('/author', upload.none(), async (req, res) => { 
      
      const { name } = req.body;
-     //console.log(name)
+    
     //  const validate = ajv.compile(authorValidation.authorSchema);
     //  const valid = validate(name);
  
@@ -93,7 +88,7 @@ router.post('/author', upload.none(), async (req, res) => {
     //  };
 
      const result = await createAuthor.addAuthor(name);
-     //console.log('2', result)               
+                  
      if (result.status === 'dublicate_name'){
          res.json({ status: 'dublicate_name' })
          return;
@@ -104,9 +99,9 @@ router.post('/author', upload.none(), async (req, res) => {
 
 //Роутер для аякса, для добавления ЖАНРА
 router.post('/genre', upload.none(), async (req, res) => { 
-    // AJV!!!
+    
     const { name } = req.body;
-    //console.log(name)
+    
     // const validate = ajv.compile(genreValidation.genreSchema);
     // const valid = validate(name);
 
@@ -121,7 +116,7 @@ router.post('/genre', upload.none(), async (req, res) => {
     // };
 
     const result = await createGenre.saveGenre(name);
-    //console.log('2', result)               // отдает  { status: 'ok', payload: { id: '613e236cb580d5cad0f97c75' } }
+    
     if (result.status === 'dublicate_name'){
         res.json({ status: 'dublicate_name' })
         return;
