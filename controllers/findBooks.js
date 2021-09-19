@@ -2,16 +2,6 @@ require('../bin/runners/db');
 const axios = require('axios');
 const articleModel = require('../models/article.js');
 
-// const saveArticle = async (data) => {
-//     const article = new articleModel;
-//     article.name = data.articleTitle;
-//     article.topic = data.topic;
-//     article.text = data.text;
-//     article.author = data.author; 
-//     const articleNew = await article.save();
-//     //console.log(articleNew)
-// }
-
 // найти все книги
 const findAllBooks = async () => {
     const docs = await articleModel.find({ })
@@ -33,7 +23,6 @@ const findBook = async (val) => {
 
 
 module.exports = {
-    //saveArticle,
     findAllBooks,
     findBook
 };
