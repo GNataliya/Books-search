@@ -21,9 +21,6 @@ const generalSchema = new Schema ({
         //type: Sсhema.Types.ObjectId, // указываем определенный id который указан в mongoose
         //ref: 'user',                 // author относится к коллекции users
     }],
-    // price: {
-    //     type: Schema.Types.Number
-    // },
     createDate: {
         type: Schema.Types.Date,
         default: Date.now
